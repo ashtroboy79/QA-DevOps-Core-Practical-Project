@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  service1:
+    image:
+    build: ./service1
+    continer_name: service1
+    networks: 
+      - d&d-net
+
+  service2:
+
+  service3:
+
+  service4:
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    networks:
+      - d&d-net
+    volumes:
+      - type: bind
+      source: ./nginx.conf
+      target: /etc/nginx/nginx.conf
+    ports: 
+      - target: 80
+        published: 80
+        protocol: tcp
+
+
+networks: 
+  d&d-net:
