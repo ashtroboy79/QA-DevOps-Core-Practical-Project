@@ -1,6 +1,6 @@
 from application import app
 from random import choice
 
-@app.route('/dummyroute3', methods=['Get'])
-def dummy_route3():
+@app.route('/dummyroute4', methods=['Get'])
+def dummy_route4():
     pass

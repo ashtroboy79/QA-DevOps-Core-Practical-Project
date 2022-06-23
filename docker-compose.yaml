@@ -19,11 +19,13 @@ services:
     networks:
       - d&d-net
     volumes:
-      -type: bind
+      - type: bind
       source: ./nginx.conf
       target: /etc/nginx/nginx.conf
     ports: 
-      - target:
+      - target: 80
+        published: 80
+        protocol: tcp
 
 
 networks: 
