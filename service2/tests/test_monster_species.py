@@ -1,4 +1,3 @@
-from email.mime import application
 from application import app, routes
 from flask import url_for
 from flask_testing import TestCase
