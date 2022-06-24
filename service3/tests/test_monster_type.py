@@ -21,4 +21,3 @@ class TestMonsterType(TestBase):
         response = self.client.get(url_for('monster_type'))
         self.assert200(response)
         self.assertIn(b'5', response.data)
-
