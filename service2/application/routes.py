@@ -3,4 +3,4 @@ from random import choice
 
 @app.route('/monster_species', methods=['Get'])
 def monster_species():
-    pass
+    return choice(['Dragon','Giant','Troll','Beholder','Illithid','Liche','Vampire'])
