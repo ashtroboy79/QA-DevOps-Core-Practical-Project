@@ -1,17 +1,32 @@
 version: "3.8"
 services:
   service1:
-    image:
+    image: monster-encounter-front:v1
     build: ./service1
-    continer_name: service1
+    container_name: service1
     networks: 
       - d&d-net
 
   service2:
+    image: monster-encounter-monster-species:v1
+    build: ./service2
+    container_name: service2
+    networks:
+      - d&d-net
 
   service3:
+    image: monster-encounter-monster-type:v1
+    build: ./service3
+    container_name: service3
+    networks:
+      - d&d-net
 
   service4:
+    image: monster-encounter-monster-classification:v1
+    build: ./service4
+    container_name: service4
+    networks:
+      - d&d-net
 
   nginx:
     image: nginx:latest
