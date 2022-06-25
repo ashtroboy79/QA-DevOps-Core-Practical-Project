@@ -18,13 +18,16 @@ def monster_class():
     }
     monster_class = monster[data_sent['monster']][data_sent['type']-1]
     if monster_class == "Archlich":
-        return f"An {monster_class} has attacked the party, roll initiative!!!"
+        encounter =  f"An {monster_class}"
     elif monster_class in ("Ice", "Eastern", "Ancient"):
-        return f"An {monster_class} {data_sent['monster']} has attacked the party, roll initiative!!!"
+        encounter = f"An {monster_class} {data_sent['monster']}"
     elif data_sent['monster'] in ("Beholder" , "Demon"):
-        return f"A {monster_class} has attacked the party, roll initiative!!!"
+        encounter =  f"A {monster_class}"
     elif monster_class in ("Demilich", "Dracolich", "Banelich"):
-        return f"A {monster_class} has attacked the party, roll initiative!!!"
+        encounter =  f"A {monster_class}"
     elif monster_class in ("lord", "muse", "spawn"):
-        return f"A {data_sent['monster']} {monster_class} has attacked the party, roll initiative!!!"
-    return f"A {monster_class} {data_sent['monster']} has attacked the party, roll initiative!!!"
+        encounter =  f"A {data_sent['monster']} {monster_class}"
+    else:
+        encounter = f"A {monster_class} {data_sent['monster']}"
+
+    return f"{encounter} has attacked the party, roll initiative!!!"
