@@ -10,53 +10,53 @@ class TestBase(TestCase):
 
 class TestMonsterClass(TestBase):
    
-    def test_monster_class1(self):
+    def test_monster_class_giant1(self):
         response = self.client.post(
             url_for('monster_class'),
             json = {'monster':'Giant', 'type':1}
         )
         self.assert200(response)
-        self.assertIn(b'Fire Giant', response.data)
+        self.assertIn(b'A Fire Giant has attacked the party, roll initiative!!!', response.data)
 
-    def test_monster_class2(self):
+    def test_monster_class_giant2(self):
         response = self.client.post(
             url_for('monster_class'),
             json = {'monster':'Giant', 'type':2}
         )
         self.assert200(response)
-        self.assertIn(b'Hill Giant', response.data)
+        self.assertIn(b'A Hill Giant has attacked the party, roll initiative!!!', response.data)
 
-    def test_monster_class3(self):
+    def test_monster_class_giant3(self):
         response = self.client.post(
             url_for('monster_class'),
             json = {'monster':'Giant', 'type':3}
         )
         self.assert200(response)
-        self.assertIn(b'Cloud Giant', response.data)
+        self.assertIn(b'A Cloud Giant has attacked the party, roll initiative!!!', response.data)
 
-    def test_monster_class4(self):
+    def test_monster_class_giant4(self):
         response = self.client.post(
             url_for('monster_class'),
             json = {'monster':'Giant', 'type':4}
         )
         self.assert200(response)
-        self.assertIn(b'Frost Giant', response.data)
+        self.assertIn(b'A Frost Giant has attacked the party, roll initiative!!!', response.data)
 
-    def test_monster_class5(self):
+    def test_monster_class_giant5(self):
         response = self.client.post(
             url_for('monster_class'),
             json = {'monster':'Giant', 'type':5}
         )
         self.assert200(response)
-        self.assertIn(b'Stone Giant', response.data)
+        self.assertIn(b'A Stone Giant has attacked the party, roll initiative!!!', response.data)
 
-    def test_monster_class6(self):
+    def test_monster_class_giant6(self):
         response = self.client.post(
             url_for('monster_class'),
             json = {'monster':'Giant', 'type':6}
         )
         self.assert200(response)
-        self.assertIn(b'Storm Giant', response.data)
+        self.assertIn(b'A Storm Giant has attacked the party, roll initiative!!!', response.data)
 
 
         
