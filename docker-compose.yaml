@@ -22,7 +22,7 @@ services:
       - d&d-net
 
   service4:
-    image: monster-encounter-monster-classification:v1
+    image: monster-encounter-monster-classification:v2
     build: ./service4
     container_name: service4
     networks:
@@ -35,13 +35,14 @@ services:
       - d&d-net
     volumes:
       - type: bind
-      source: ./nginx.conf
-      target: /etc/nginx/nginx.conf
+        source: ./nginx.conf
+        target: /etc/nginx/nginx.conf
     ports: 
       - target: 80
         published: 80
         protocol: tcp
-
+    depends_on:
+      - service1
 
 networks: 
   d&d-net:
