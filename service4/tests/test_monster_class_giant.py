@@ -13,47 +13,50 @@ class TestMonsterClass(TestBase):
     def test_monster_class1(self):
         response = self.client.post(
             url_for('monster_class'),
-            json = {'monster':'Dragon', 'type':1}
+            json = {'monster':'Giant', 'type':1}
         )
         self.assert200(response)
-        self.assertIn(b'A Black Dragon has attacked the party', response.data)
+        self.assertIn(b'Fire Giant', response.data)
 
     def test_monster_class2(self):
         response = self.client.post(
             url_for('monster_class'),
-            json = {'monster':'Troll', 'type':2}
+            json = {'monster':'Giant', 'type':2}
         )
         self.assert200(response)
-        self.assertIn(b'Ice Troll', response.data)
+        self.assertIn(b'Hill Giant', response.data)
 
     def test_monster_class3(self):
         response = self.client.post(
             url_for('monster_class'),
-            json = {'monster':'Beholder', 'type':4}
+            json = {'monster':'Giant', 'type':3}
         )
         self.assert200(response)
-        self.assertIn(b'Gauth has attacked the party', response.data)
+        self.assertIn(b'Cloud Giant', response.data)
 
     def test_monster_class4(self):
         response = self.client.post(
             url_for('monster_class'),
-            json = {'monster':'Liche', 'type':3}
+            json = {'monster':'Giant', 'type':4}
         )
         self.assert200(response)
-        self.assertIn(b'A Demilich has attacked the party roll initiative', response.data)
+        self.assertIn(b'Frost Giant', response.data)
 
     def test_monster_class5(self):
         response = self.client.post(
             url_for('monster_class'),
-            json = {'monster':'Liche', 'type':1}
+            json = {'monster':'Giant', 'type':5}
         )
         self.assert200(response)
-        self.assertIn(b'An Archlich has attacked the party', response.data)
+        self.assertIn(b'Stone Giant', response.data)
 
     def test_monster_class6(self):
         response = self.client.post(
             url_for('monster_class'),
-            json = {'monster':'Vampire', 'type':4}
+            json = {'monster':'Giant', 'type':6}
         )
         self.assert200(response)
-        self.assertIn(b'A Vampire lord has', response.data)
+        self.assertIn(b'Storm Giant', response.data)
+
+
+        
