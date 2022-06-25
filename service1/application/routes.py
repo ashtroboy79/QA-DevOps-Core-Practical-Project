@@ -4,4 +4,7 @@ import requests
 
 @app.route('/')
 def index():
-    var1 = requests.get('http://service2/monster_species').text
+    monster_species = requests.get('http://service2:5000/monster_species').text
+    monster_type = requests.get('http://service3:5000/monster_type').json()
+    encounter = requests.post('http://service4:5000/monster_class', json={"monster":monster_species, "type":monster_type['type']})
+    return render_template('index.html', encounter_text=encounter.text)
