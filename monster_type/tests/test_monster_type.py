@@ -9,14 +9,16 @@ class TestBase(TestCase):
         return app
 
 class TestMonsterType(TestBase):
-    @patch('application.routes.randint', return_value=1)
+    @patch('application.routes.randint', side_effect=[1,3])
     def test_monster_type1(self,pathced):
         response = self.client.get(url_for('monster_type'))
         self.assert200(response)
-        self.assertIn(b'1', response.data)
+        self.assertIn(b'"type":1', response.data)
+        self.assertIn(b'"quantity":3', response.data)
 
-    @patch('application.routes.randint', return_value=5)
+    @patch('application.routes.randint', side_effect=[5,6])
     def test_monster_type2(self,pathced):
         response = self.client.get(url_for('monster_type'))
         self.assert200(response)
-        self.assertIn(b'5', response.data)
+        self.assertIn(b'"type":5', response.data)
+        self.assertIn(b'"quantity":6', response.data)
