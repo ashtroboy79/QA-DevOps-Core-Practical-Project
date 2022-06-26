@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -a dirs=(service1 service2 service3 service4)
+declare -a dirs=(front_end monster_species monster_type monster_class)
 
 for dir in ${dirs[@]}; do
     cd ${dir}
