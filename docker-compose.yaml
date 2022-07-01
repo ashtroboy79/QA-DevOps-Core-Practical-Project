@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+  service1:
+    image: ashtroboy/monster-encounter-front:v2
+    build: ./front_end
+    container_name: front_end
+    networks: 
+      - dandd-net
+
+  service2:
+    image: ashtroboy/monster-encounter-monster-species:v2
+    build: ./monster_species
+    container_name: monster_species
+    networks:
+      - dandd-net
+
+  service3:
+    image: ashtroboy/monster-encounter-monster-type:v2
+    build: ./monster_type
+    container_name: monster_type
+    networks:
+      - dandd-net
+
+  service4:
+    image: ashtroboy/monster-encounter-monster-classification:v4
+    build: ./monster_class
+    container_name: monster_class
+    networks:
+      - dandd-net
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    networks:
+      - dandd-net
+    volumes:
+      - type: bind
+        source: ./nginx.conf
+        target: /etc/nginx/nginx.conf
+    ports: 
+      - target: 80
+        published: 80
+        protocol: tcp
+    depends_on:
+      - service1
+
+networks: 
+  dandd-net:
+    driver: overlay
