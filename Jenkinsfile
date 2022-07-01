@@ -15,6 +15,12 @@ pipeline {
                 sh '''docker-compose build
                 docker login --username ${DH_USERNAME} --password ${DH_PASSWD}
                 docker-compose push'''
+            }
+        }
+        stage('Deploy to dockerswarm'){
+            steps {
+                
+            }
         }
 
     }
