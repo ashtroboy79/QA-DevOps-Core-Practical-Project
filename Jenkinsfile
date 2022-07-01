@@ -19,7 +19,10 @@ pipeline {
         }
         stage('Deploy to dockerswarm'){
             steps {
-                
+                sh 'scp docker-compose.yaml docker-manager:/home/jenkins/docker-compose.yaml'
+                sh 'scp nginx.conf docker-manager:/home/jenkins/nginx.conf'
+                sh 'ssh ahsarasul@docker-manager < sudo useradd jenkins'
+                sh 'ssh jenkins@docker-manager < deploy.sh'
             }
         }
 

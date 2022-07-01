@@ -7,3 +7,5 @@ Bug fix - ended up wit a bug becuase the beholder array only had 5 items not 6, 
     if x == (a or b or c) 
     to 
     if x in (a, b,c)
+
+GCP seems to have issues with running more than 1 instance of each service, using replicas caused issues, currently uncertain how to solve. Also even though the swarm-worker is running services, when I attempt to visit the app on the swarm-worker, i end up with This site can’t be reached The connection was reset. 
