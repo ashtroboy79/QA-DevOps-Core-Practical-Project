@@ -46,4 +46,4 @@ services:
 
 networks: 
   dandd-net:
-    driver: overlay
+    # driver: overlay
