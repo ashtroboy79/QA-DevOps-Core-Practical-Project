@@ -7,7 +7,9 @@ pipeline {
     stages {
         stage('Test'){
             steps {
-                sh './tests.sh'
+                sh 'sudo apt update'
+                sh 'sudo apt install python3 python3-pip python3-venv -y'
+                sh 'bash tests.sh'
             }
         }
         stage('Building docker images and push to dockerhub'){
@@ -19,10 +21,10 @@ pipeline {
         }
         stage('Deploy to dockerswarm'){
             steps {
-                sh 'scp docker-compose.yaml docker-manager:/home/jenkins/docker-compose.yaml'
-                sh 'scp nginx.conf docker-manager:/home/jenkins/nginx.conf'
-                sh 'ssh ahsarasul@docker-manager < sudo useradd jenkins'
-                sh 'ssh jenkins@docker-manager < deploy.sh'
+                sh 'scp docker-compose.yaml swarm-manager:/home/jenkins/docker-compose.yaml'
+                sh 'scp nginx.conf swarm-manager:/home/jenkins/nginx.conf'
+                sh 'ssh ahsarasul@swarm-manager < sudo useradd jenkins'
+                sh 'ssh jenkins@swarm-manager < deploy.sh'
             }
         }
 
