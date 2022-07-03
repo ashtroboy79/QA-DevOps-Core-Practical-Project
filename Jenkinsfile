@@ -7,6 +7,9 @@ pipeline {
     stages {
         stage('Test'){
             steps {
+                sh 'sudo apt install python3 python3-pip python3-venv -y'
+                sh 'python3 -m venv venv'
+                sh 'source venv/bin/activate'
                 sh './tests.sh'
             }
         }
