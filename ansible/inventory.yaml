@@ -1,0 +1,8 @@
+all:
+  children:
+    manager:
+      hosts:
+        swarm-manager:
+    workers:
+      hosts:
+        swarm-worker:
