@@ -5,8 +5,5 @@
     state: present
     
 - name: Inspect swarm
-  docker_swarm:
-    state: inspect
+  docker_swarm_info:
   register: swarm_info
-
-
