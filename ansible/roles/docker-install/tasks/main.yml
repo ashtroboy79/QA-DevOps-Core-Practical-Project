@@ -41,3 +41,11 @@
 - name: Install Docker Module for Python
   pip:
     name: docker
+
+
+- name: Add the user 'jenkins' with a bash shell, appending the group 'docker' to the user's groups
+  user:
+    name: jenkins
+    shell: /bin/bash
+    groups: docker
+    append: yes
