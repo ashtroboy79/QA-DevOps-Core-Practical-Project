@@ -1,0 +1,12 @@
+all:
+  children:
+    manager:
+      hosts:
+        swarm-manager:
+    workers:
+      hosts:
+        swarm-worker:
+    
+  vars:
+    ansible_user: ahsanrasul
+    ansible_ssh_private_key_file: '~/.ssh/ansible_id_rsa'

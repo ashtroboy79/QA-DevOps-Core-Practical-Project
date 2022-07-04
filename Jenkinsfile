@@ -19,12 +19,18 @@ pipeline {
                 docker-compose push'''
             }
         }
+        stage('Setup dockerswarm'){
+            steps {
+                sh 'ansible-playbook -i ansible/inventory.yaml ansible/playbook.yaml'
+            }
+        }
         stage('Deploy to dockerswarm'){
             steps {
                 sh 'scp docker-compose.yaml swarm-manager:/home/jenkins/docker-compose.yaml'
                 sh 'scp nginx.conf swarm-manager:/home/jenkins/nginx.conf'
-                sh 'ssh ahsarasul@swarm-manager < sudo useradd jenkins'
-                sh 'ssh jenkins@swarm-manager < deploy.sh'
+                // sh 'ssh ahsarasul@swarm-manager < sudo useradd jenkins'
+                sh 'ssh ahsanrasul@swarm-manager < sudo usermod -aG docker ahsanrasul'
+                sh 'ssh ahsanrasul@swarm-manager < deploy.sh'
             }
         }
 
