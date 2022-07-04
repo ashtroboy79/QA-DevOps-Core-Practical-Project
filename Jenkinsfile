@@ -26,11 +26,11 @@ pipeline {
         }
         stage('Deploy to dockerswarm'){
             steps {
-                sh 'scp docker-compose.yaml swarm-manager:/home/ahsanrasul/docker-compose.yaml'
-                sh 'scp nginx.conf swarm-manager:/home/ahsanrasul/nginx.conf'
+                sh 'scp docker-compose.yaml swarm-manager:/home/jenkins/docker-compose.yaml'
+                sh 'scp nginx.conf swarm-manager:/home/jenkins/nginx.conf'
                 // sh 'ssh ahsarasul@swarm-manager < sudo useradd jenkins'
-                sh 'ssh ahsanrasul@swarm-manager < sudo usermod -aG docker ahsanrasul'
-                sh 'ssh ahsanrasul@swarm-manager < deploy.sh'
+                // sh 'ssh ahsanrasul@swarm-manager < sudo usermod -aG docker ahsanrasul'
+                sh 'ssh jenkins@swarm-manager < deploy.sh'
             }
         }
 
