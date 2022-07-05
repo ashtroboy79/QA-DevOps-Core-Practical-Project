@@ -6,6 +6,7 @@ services:
     container_name: front_end
     networks: 
       - dandd-net
+    
 
   service2:
     image: ashtroboy/monster-encounter-monster-species:v1
