@@ -9,7 +9,6 @@ services:
     deploy:
       replicas: 2
     
-
   service2:
     image: ashtroboy/monster-encounter-monster-species:v1
     build: ./monster_species
