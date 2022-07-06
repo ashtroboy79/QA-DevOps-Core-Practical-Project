@@ -6,6 +6,9 @@ services:
     container_name: front_end
     networks: 
       - dandd-net
+    deploy:
+      replicas: 2
+    
 
   service2:
     image: ashtroboy/monster-encounter-monster-species:v1
@@ -13,6 +16,8 @@ services:
     container_name: monster_species
     networks:
       - dandd-net
+    deploy:
+      replicas: 2
 
   service3:
     image: ashtroboy/monster-encounter-monster-type:v1
@@ -20,6 +25,8 @@ services:
     container_name: monster_type
     networks:
       - dandd-net
+    deploy:
+      replicas: 2
 
   service4:
     image: ashtroboy/monster-encounter-monster-classification:v1
@@ -27,6 +34,8 @@ services:
     container_name: monster_class
     networks:
       - dandd-net
+    deploy:
+      replicas: 2
 
   nginx:
     image: nginx:latest
@@ -46,4 +55,4 @@ services:
 
 networks: 
   dandd-net:
-    # driver: overlay
+    driver: overlay
