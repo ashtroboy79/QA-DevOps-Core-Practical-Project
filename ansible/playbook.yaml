@@ -18,8 +18,8 @@
 #   roles: 
 #     - swarm-join
 
-  - hosts:
+- hosts:
+  - load-balancer
+  become: yes
+  roles:  
     - load-balancer
-    become: yes
-    roles:  
-      - load-balancer
