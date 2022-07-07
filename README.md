@@ -111,12 +111,13 @@ A few screenshots of version 2 running
 
 ## Version 2 tests 
 
-The test suite was addapted for version 2, as both services 2 and 3 generated random output, the standard patch had to be ammended to allow for the mocking of multiple values, after much trial and error and searching online, I was able to come across a suitable solution, which involved substituting return_value, with side_effect which could take a list of values that could be iterated against with multiple asserts, though a loop could also have been used, I choose the format I did for clarity and to ensure it did what I wanted it to do. The tests were updated to include the extra data, and I ran verious manual experiments to check that the tests weren't spuriously passing, as below, and once I was happy with my confidence in the tests, I continued on. 
+The test suite was adapted for version 2, as both services 2 and 3 generated random output, the standard patch had to be ammended to allow for the mocking of multiple values, after much trial and error and searching online, I was able to come across a suitable solution, which involved substituting return_value, with side_effect which could take a list of values that could be iterated against with multiple asserts, though a loop could also have been used, I choose the format I did for clarity and to ensure it did what I wanted it to do. The tests were updated to include the extra data, and I ran verious manual experiments to check that the tests weren't spuriously passing, as below, and once I was happy with my confidence in the tests, I continued on. 
 <p align="center">
   <img width="700" height="300" src="images/side-effect-test.jpg">
 </p>
 
 As can be seen all the tests on version 2 pass, with 100% coverage.
+
 <p align="center">
   <img width="700" height="100" src="images/front_test_v2.jpg">
 </p>
