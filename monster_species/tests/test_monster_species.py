@@ -9,22 +9,10 @@ class TestBase(TestCase):
         return app
 
 class TestMonsterSpecies(TestBase):
-    # @patch('application.routes.choice', return_value= 'Dragon')
-    # def test_monster_species1(self, patched):
-    #     response = self.client.get(url_for('monster_species'))
-    #     self.assert200(response)
-    #     self.assertIn(b'Dragon', response.data)
-
-    # @patch('application.routes.choice', return_value= 'Giant')
-    # def test_monster_species2(self, patched):
-    #     response = self.client.get(url_for('monster_species'))
-    #     self.assert200(response)
-    #     self.assertIn(b'Giant', response.data)
     @patch('application.routes.choice', side_effect=['Dragon', 'Orcs'])
     def test_monster_species(self, patched):
         response = self.client.get(url_for('monster_species'))
         self.assert200(response)
-        # print(response.data)
         self.assertIn(b'"monster":"Dragon"', response.data)
         self.assertIn(b'"minions":"Orcs"', response.data)
     
