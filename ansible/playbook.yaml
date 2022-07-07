@@ -1,6 +1,7 @@
 - hosts: 
   - manager
   # - workers
+  - load-balancer
   become: yes
   roles:
     - docker-install
@@ -16,3 +17,9 @@
 #   become: yes
 #   roles: 
 #     - swarm-join
+
+  - hosts:
+    - load-balancer
+    become: yes
+    roles:  
+      - load-balancer
