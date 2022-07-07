@@ -1,0 +1,18 @@
+---
+# tasks file for load-balancer
+- name: Install nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Copy nginx.conf
+  copy:
+    src: nginx.conf
+    dest: /etc/nginx/nginx.conf
+  register: nginx_config
+
+- name: Restart nginx if needed
+  service:
+    name: nginx
+    state: reloaded
+  when: nginx_config.changed == true

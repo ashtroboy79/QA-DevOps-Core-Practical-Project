@@ -6,6 +6,9 @@ all:
     # workers:
     #   hosts:
     #     swarm-worker:
+    balancer:
+      hosts:
+        load-balancer:
     
   vars:
     ansible_user: ahsanrasul
