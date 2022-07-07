@@ -76,7 +76,7 @@ Git and Github allow the use of branching, this was used to keep the code base s
 
 ## Test Results
 
-I endevoured to follow a TDD when writing my services, however my inexperience resulted in a few issues, one which is mentioned below in Issues and Bugs, this wasn't picked up by my tests at the time as I hadn't thought to check the size of the arrays in the dictionary and had assumed that as the few tests I had written gave 100% coverage and were passing, that I was fully covered. This obvious was not the case, and led to rewriting that test suite. I have not been able to use automated integration testing using selenium as yet, and have instead manually tested the interaction on the frontpage.  Jenkins is currently running the tests on each build, I would like to look into ammending the pipeline so that if the tests do not all pass then the pipeine will fail, and thus reducing the risk of deploying broken code. All tests are passing and coverage is 100%.
+I endevoured to follow a TDD when writing my services, however my inexperience resulted in a few issues, one which is mentioned below in Issues and Bugs, this wasn't picked up by my tests at the time as I hadn't thought to check the size of the arrays in the dictionary and had assumed that as the few tests I had written gave 100% coverage and were passing, that I was fully covered. This obvious was not the case, and led to rewriting that test suite. Mocking repsonses for other services was a key part of testing the application, and was an essential part of services 1, 2,and 3, as when running the tests on service 1, the other services woud not be live, and services 2 & 3 rely on random out put. I have not been able to use automated integration testing using selenium as yet, and have instead manually tested the interaction on the frontpage.  Jenkins is currently running the tests on each build, I would like to look into ammending the pipeline so that if the tests do not all pass then the pipeine will fail, and thus reducing the risk of deploying broken code. All tests are passing and coverage is 100%.
 
 <p align="center">
   <img width="700" height="150" src="images/front_test.jpg">
@@ -110,8 +110,12 @@ A few screenshots of version 2 running
 
 ## Version 2 tests 
 
-The test suite was addapted for version 2, as both services 2 and 3 generated random output, the standard patch had to be ammended to allow for the mocking of multiple values, after much trial and error and searching online, I was able to come across a suitable solution, which involved substituting return_value, with side_effect which could take a list of values that could be iterated against with multiple asserts, though a loop could also have been used, I choose the format I did for clarity and to ensure it did what I wanted it to do. The tests were updated to include the extra data, and I ran verious manual experiments to check that the tests weren't spuriously passing and once I was happy with my confidence in the tests, I continued on. As can be seen all the tests on version 2 pass, with 100% coverage.
+The test suite was addapted for version 2, as both services 2 and 3 generated random output, the standard patch had to be ammended to allow for the mocking of multiple values, after much trial and error and searching online, I was able to come across a suitable solution, which involved substituting return_value, with side_effect which could take a list of values that could be iterated against with multiple asserts, though a loop could also have been used, I choose the format I did for clarity and to ensure it did what I wanted it to do. The tests were updated to include the extra data, and I ran verious manual experiments to check that the tests weren't spuriously passing, as below, and once I was happy with my confidence in the tests, I continued on. 
+<p align="center">
+  <img width="700" height="300" src="images/side-effect-test.jpg">
+</p>
 
+As can be seen all the tests on version 2 pass, with 100% coverage.
 <p align="center">
   <img width="700" height="100" src="images/front_test_v2.jpg">
 </p>
