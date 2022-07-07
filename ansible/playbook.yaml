@@ -19,7 +19,7 @@
 #     - swarm-join
 
 - hosts:
-  - load-balancer
+  - balancer
   become: yes
   roles:  
     - load-balancer
