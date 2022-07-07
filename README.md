@@ -78,12 +78,36 @@ Git and Github allow the use of branching, this was used to keep the code base s
 
 ## Further Development
 
-As stated earlier I had hoped to incorporate an external api into the application, as such when designing the next version, I checked the api to see what resources it could provide and what items I could call it on. As such the current version on the dev branch has the following interactions as per the following service relationship diagram.
+As stated earlier I had hoped to incorporate an external api into the application, as such when designing the next version, I checked the api to see what resources it could provide and what items I could call it on. As such the current version on the dev branch has the following interactions as per the following service relationship diagram. 
 
 <p align="center">
   <img width="700" height="570" src="images/SRDv2.jpg">
 </p>
 
+A few screenshots of version 2 running
+<p align="center">
+  <img width="1000" height="300" src="images/app-v2.jpg">
+</p>
+<p align="center">
+  <img width="1000" height="300" src="images/app-v2-1.jpg">
+</p>
+
+## Version 2 tests 
+
+The test suite was addapted for version 2, as both services 2 and 3 generated random output, the standard patch had to be ammended to allow for the mocking of multiple values, after much trial and error and searching online, I was able to come across a suitable solution, which involved substituting return_value, with side_effect which could take a list of values that could be iterated against with multiple asserts, though a loop could also have been used, I choose the format I did for clarity and to ensure it did what I wanted it to do. The tests were updated to include the extra data, and I ran verious manual experiments to check that the tests weren't spuriously passing and once I was happy with my confidence in the tests, I continued on. As can be seen all the tests on version 2 pass, with 100% coverage.
+
+<p align="center">
+  <img width="700" height="300" src="front_test_v2.jpg">
+</p>
+<p align="center">
+  <img width="700" height="300" src="monster_species_test_v2.jpg">
+</p>
+<p align="center">
+  <img width="700" height="300" src="monster_type_test_v2.jpg">
+</p>
+<p align="center">
+  <img width="700" height="300" src="monster_class_test_v2.jpg">
+</p>
 
 ## Issues and Bugs
 
@@ -117,10 +141,9 @@ https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-a
 
 https://blog.networktocode.com/post/Accessing-other-host-variables-in-Ansible/ for how to access variables from on host and use them in another host
 
-
 [Bootstrap cards](https://getbootstrap.com/docs/4.0/components/card/)and [Bootstrap buttons](https://getbootstrap.com/docs/4.0/components/card/) from https://getbootstrap.com/
 
 ### Version
 
 Version 1.0
-
+Version 2.0 to be deployed during presentation
