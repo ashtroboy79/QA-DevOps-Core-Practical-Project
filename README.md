@@ -69,6 +69,7 @@ Here we can see all the steps of the deployment pipline. Firstly the developer p
   <img width="1000" height="300" src="images/frontpage.jpg">
 </p>
 
+The application has been updated to use an nginx load balancer, this means that the swarm can be setup to not accept http traffic and thus it is only accessable via the public address of the load balancer. Currently a load balancer is superfluous as the swarm is only running on a single vm, however it is hoped that once the gcp issue is resolved and multiple swarm workers are available then it will be much more useful. 
 
 ## Feature branch
 
@@ -150,7 +151,7 @@ GCP seems to have issues with running the swarm such that even though the swarm-
 
 ## Future Development
 
-* Add a load balancer
+* Add a load balancer - added 07/07/22
 * Deploy with Gunicorn rather than as a native flask app
 * Add a SQL to store any previous encounters
 
