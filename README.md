@@ -79,7 +79,7 @@ Git and Github allow the use of branching, this was used to keep the code base s
 I endevoured to follow a TDD when writing my services, however my inexperience resulted in a few issues, one which is mentioned below in Issues and Bugs, this wasn't picked up by my tests at the time as I hadn't thought to check the size of the arrays in the dictionary and had assumed that as the few tests I had written gave 100% coverage and were passing, that I was fully covered. This obvious was not the case, and led to rewriting that test suite. I have not been able to use automated integration testing using selenium as yet, and have instead manually tested the interaction on the frontpage.  Jenkins is currently running the tests on each build, I would like to look into ammending the pipeline so that if the tests do not all pass then the pipeine will fail, and thus reducing the risk of deploying broken code. All tests are passing and coverage is 100%.
 
 <p align="center">
-  <img width="700" height="150" src="images/front_testjpg">
+  <img width="700" height="150" src="images/front_test.jpg">
 </p>
 <p align="center">
   <img width="700" height="150" src="images/monster_species_test.jpg">
@@ -94,19 +94,43 @@ I endevoured to follow a TDD when writing my services, however my inexperience r
 
 ## Further Development
 
-As stated earlier I had hoped to incorporate an external api into the application, as such when designing the next version, I checked the api to see what resources it could provide and what items I could call it on. As such the current version on the dev branch has the following interactions as per the following service relationship diagram.
+As stated earlier I had hoped to incorporate an external api into the application, as such when designing the next version, I checked the api to see what resources it could provide and what items I could call it on. As such the current version on the dev branch has the following interactions as per the following service relationship diagram. 
 
 <p align="center">
   <img width="700" height="570" src="images/SRDv2.jpg">
 </p>
 
+A few screenshots of version 2 running
+<p align="center">
+  <img width="1000" height="300" src="images/app-v2.jpg">
+</p>
+<p align="center">
+  <img width="1000" height="300" src="images/app-v2-1.jpg">
+</p>
+
+## Version 2 tests 
+
+The test suite was addapted for version 2, as both services 2 and 3 generated random output, the standard patch had to be ammended to allow for the mocking of multiple values, after much trial and error and searching online, I was able to come across a suitable solution, which involved substituting return_value, with side_effect which could take a list of values that could be iterated against with multiple asserts, though a loop could also have been used, I choose the format I did for clarity and to ensure it did what I wanted it to do. The tests were updated to include the extra data, and I ran verious manual experiments to check that the tests weren't spuriously passing and once I was happy with my confidence in the tests, I continued on. As can be seen all the tests on version 2 pass, with 100% coverage.
+
+<p align="center">
+  <img width="700" height="100" src="images/front_test_v2.jpg">
+</p>
+<p align="center">
+  <img width="700" height="100" src="images/monster_species_test_v2.jpg">
+</p>
+<p align="center">
+  <img width="700" height="100" src="images/monster_type_test_v2.jpg">
+</p>
+<p align="center">
+  <img width="700" height="150" src="images/monster_class_test_v2.jpg">
+</p>
 
 ## Issues and Bugs
 
 The first run of the app resulted in a bug, as shown below 
 
 <p align="center">
-  <img width="700" height="570" src="images/bug.jpg">
+  <img width="500" height="270" src="images/bug.jpg">
 </p>
 
 The bug was caused becuase the beholder array only had 5 items not 6, as even though the test report showed that I had 100% coverage I was not actually checking all the possible cases, this lead to me writing a more robust test suite, this in turn led me to discovering that python does not like multiple **or** statements, or atleast the way I had written them in the if statements meant that the new tests werent passing, as such the conditional for these was changed from 
@@ -114,6 +138,7 @@ The bug was caused becuase the beholder array only had 5 items not 6, as even th
     if x == (a or b or c) 
     to 
     if x in (a, b,c)
+
 
 GCP seems to have issues with running the swarm such that even though the swarm-worker is running services as can be seen in the image from the deployment section, when I attempt to visit the app on the swarm-worker, I end up with **This site can’t be reached The connection was reset**. Upon further inspection it turns out that if service1 is on the worker then it fails to return data to the nginx on the manager, all other traffic between the app is bi-directional. This is the case even with the network explictly set to an overlay network, which allows containers on different hosts to communicate with each other, as per the diagram below.  Even with support no solution or reason has been found as of 05/07/22. As such the swarm worker has been taken offline and the swarm will only consist of the swarm-manager, the playbook and inventory have the role commented out so that should a solution be found then it can be reinserted with minimal difficulty
 
@@ -137,3 +162,4 @@ https://blog.networktocode.com/post/Accessing-other-host-variables-in-Ansible/ f
 ### Version
 
 Version 1.0
+Version 2.0 to be deployed during presentation
