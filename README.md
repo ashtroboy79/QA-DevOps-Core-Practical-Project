@@ -76,6 +76,22 @@ Git and Github allow the use of branching, this was used to keep the code base s
 
 ## Test Results
 
+I endevoured to follow a TDD when writing my services, however my inexperience resulted in a few issues, one which is mentioned below in Issues and Bugs, this wasn't picked up by my tests at the time as I hadn't thought to check the size of the arrays in the dictionary and had assumed that as the few tests I had written gave 100% coverage and were passing, that I was fully covered. This obvious was not the case, and led to rewriting that test suite. I have not been able to use automated integration testing using selenium as yet, and have instead manually tested the interaction on the frontpage.  Jenkins is currently running the tests on each build, I would like to look into ammending the pipeline so that if the tests do not all pass then the pipeine will fail, and thus reducing the risk of deploying broken code. All tests are passing and coverage is 100%.
+
+<p align="center">
+  <img width="700" height="150" src="images/front_testjpg">
+</p>
+<p align="center">
+  <img width="700" height="150" src="images/monster_species_test.jpg">
+</p>
+<p align="center">
+  <img width="700" height="150" src="images/monster_type_test.jpg">
+</p>
+<p align="center">
+  <img width="700" height="300" src="images/monster_class_test.jpg">
+</p>
+
+
 ## Further Development
 
 As stated earlier I had hoped to incorporate an external api into the application, as such when designing the next version, I checked the api to see what resources it could provide and what items I could call it on. As such the current version on the dev branch has the following interactions as per the following service relationship diagram. 
