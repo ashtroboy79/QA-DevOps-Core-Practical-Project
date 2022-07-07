@@ -12,6 +12,11 @@ pipeline {
                 sh 'bash tests.sh'
             }
         }
+        stage('Remove existing images'){
+            steps {
+                sh 'docker system prune --all --volumes --force'
+            }
+        }
         stage('Building docker images and push to dockerhub'){
             steps {
                 sh '''docker-compose build
