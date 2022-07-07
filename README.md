@@ -99,6 +99,7 @@ The bug was caused becuase the beholder array only had 5 items not 6, as even th
     to 
     if x in (a, b,c)
 
+
 GCP seems to have issues with running the swarm such that even though the swarm-worker is running services as can be seen in the image from the deployment section, when I attempt to visit the app on the swarm-worker, I end up with **This site can’t be reached The connection was reset**. Upon further inspection it turns out that if service1 is on the worker then it fails to return data to the nginx on the manager, all other traffic between the app is bi-directional. This is the case even with the network explictly set to an overlay network, which allows containers on different hosts to communicate with each other, as per the diagram below.  Even with support no solution or reason has been found as of 05/07/22. As such the swarm worker has been taken offline and the swarm will only consist of the swarm-manager, the playbook and inventory have the role commented out so that should a solution be found then it can be reinserted with minimal difficulty
 
 
@@ -116,8 +117,10 @@ https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-a
 
 https://blog.networktocode.com/post/Accessing-other-host-variables-in-Ansible/ for how to access variables from on host and use them in another host
 
+
 [Bootstrap cards](https://getbootstrap.com/docs/4.0/components/card/)and [Bootstrap buttons](https://getbootstrap.com/docs/4.0/components/card/) from https://getbootstrap.com/
 
 ### Version
 
 Version 1.0
+

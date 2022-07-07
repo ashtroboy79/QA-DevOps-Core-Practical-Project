@@ -13,7 +13,7 @@ class TestMonsterClass(TestBase):
     def test_monster_class_vampire1(self):
         response = self.client.post(
             url_for('monster_class'),
-            json = {'monster':'Vampire', 'type':1}
+            json = {'monster':'Vampire', 'type':1, "minions":"Orcs", "quantity":1}
         )
         self.assert200(response)
         self.assertIn(b'A Corpse Vampire has attacked the party, roll initiative!!!', response.data)
@@ -21,7 +21,7 @@ class TestMonsterClass(TestBase):
     def test_monster_class_vampire2(self):
         response = self.client.post(
             url_for('monster_class'),
-            json = {'monster':'Vampire', 'type':2}
+            json = {'monster':'Vampire', 'type':2, "minions":"Orcs", "quantity":1}
         )
         self.assert200(response)
         self.assertIn(b'An Eastern Vampire has attacked the party, roll initiative!!!', response.data)
@@ -29,7 +29,7 @@ class TestMonsterClass(TestBase):
     def test_monster_class_vampire3(self):
         response = self.client.post(
             url_for('monster_class'),
-            json = {'monster':'Vampire', 'type':3}
+            json = {'monster':'Vampire', 'type':3, "minions":"Orcs", "quantity":1}
         )
         self.assert200(response)
         self.assertIn(b'A Spirit Vampire has attacked the party, roll initiative!!!', response.data)
@@ -37,7 +37,7 @@ class TestMonsterClass(TestBase):
     def test_monster_class_vampire4(self):
         response = self.client.post(
             url_for('monster_class'),
-            json = {'monster':'Vampire', 'type':4}
+            json = {'monster':'Vampire', 'type':4, "minions":"Orcs", "quantity":1}
         )
         self.assert200(response)
         self.assertIn(b'A Vampire lord has attacked the party, roll initiative!!!', response.data)
@@ -45,7 +45,7 @@ class TestMonsterClass(TestBase):
     def test_monster_class_vampire5(self):
         response = self.client.post(
             url_for('monster_class'),
-            json = {'monster':'Vampire', 'type':5}
+            json = {'monster':'Vampire', 'type':5, "minions":"Orcs", "quantity":1}
         )
         self.assert200(response)
         self.assertIn(b'A Vampire muse has attacked the party, roll initiative!!!', response.data)
@@ -53,7 +53,7 @@ class TestMonsterClass(TestBase):
     def test_monster_class_vampire6(self):
         response = self.client.post(
             url_for('monster_class'),
-            json = {'monster':'Vampire', 'type':6}
+            json = {'monster':'Vampire', 'type':6, "minions":"Orcs", "quantity":1}
         )
         self.assert200(response)
         self.assertIn(b'A Vampire spawn has attacked the party, roll initiative!!!', response.data)
