@@ -16,7 +16,12 @@ def monster_class():
         "Vampire":["Corpse", "Eastern", "Spirit", "lord", "muse", "spawn"]
 
     }
-    monster_class = monster[data_sent['monster']][data_sent['type']-1]
+    monster_species = monster[data_sent['monster']]
+    # print(monster_species)
+    monster_type = [data_sent['type']-1][0]
+    # print(monster_type)
+    # monster_class = monster[data_sent['monster']][data_sent['type']-1]
+    monster_class = monster_species[monster_type]
     if monster_class == "Archlich":
         encounter =  f"An {monster_class}"
     elif monster_class in ("Ice", "Eastern", "Ancient"):
@@ -30,4 +35,15 @@ def monster_class():
     else:
         encounter = f"A {monster_class} {data_sent['monster']}"
 
-    return f"{encounter} has attacked the party, roll initiative!!!"
+
+    minions = {
+        "Orcs":["3","4","6" ],
+        "Skeletons":["2","4","7"],
+        "Goblins":["3","5","8"],
+        "Gnolls":["2","3","4"],
+        "Dire Wolves":["3","5","6"]
+    }
+    minion_quantity = minions[data_sent['minions']][data_sent['quantity']-1]
+
+    minion_encounter = f"{minion_quantity} {data_sent['minions']} accompany it"
+    return f"{encounter} has attacked the party, roll initiative!!! {minion_encounter}"
