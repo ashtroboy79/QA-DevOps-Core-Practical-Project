@@ -152,7 +152,7 @@ GCP seems to have issues with running the swarm such that even though the swarm-
 ## Future Development
  
 * Add a load balancer - added 07/07/22
-* Run the application with a Gunicorn WSGI server rather than as a native flask app
+* Run the application with a Gunicorn WSGI server rather than as a native flask app implementation 08/07/22
 * Add a SQL to store any previous encounters
  
 ## Credits and acknowledgments
@@ -164,6 +164,8 @@ https://www.digitalocean.com/community/tutorials/how-to-use-ansible-to-install-a
 https://blog.networktocode.com/post/Accessing-other-host-variables-in-Ansible/ for how to access variables from on host and use them in another host
  
 [Bootstrap cards](https://getbootstrap.com/docs/4.0/components/card/)and [Bootstrap buttons](https://getbootstrap.com/docs/4.0/components/card/) from https://getbootstrap.com/
+
+https://betterprogramming.pub/create-a-running-docker-container-with-gunicorn-and-flask-dcd98fddb8e0 for how to containerise a gunicorn app
  
 ### Version
  
