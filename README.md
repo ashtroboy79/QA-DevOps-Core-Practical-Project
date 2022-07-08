@@ -117,6 +117,7 @@ The test suite was adapted for version 2, as both services 2 and 3 generated ran
 </p>
  
 As can be seen all the tests on version 2 pass, with 100% coverage.
+
 <p align="center">
  <img width="700" height="100" src="images/front_test_v2.jpg">
 </p>
