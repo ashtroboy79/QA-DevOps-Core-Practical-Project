@@ -152,7 +152,7 @@ GCP seems to have issues with running the swarm such that even though the swarm-
 ## Future Development
  
 * Add a load balancer - added 07/07/22
-* Run the application with a Gunicorn WSGI server rather than as a native flask app implementation 08/07/22
+* Run the application with a Gunicorn WSGI server rather than as a native flask app implementation started 08/07/22
 * Add a SQL to store any previous encounters
  
 ## Credits and acknowledgments
