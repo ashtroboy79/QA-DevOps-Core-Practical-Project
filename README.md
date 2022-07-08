@@ -69,7 +69,7 @@ Here we can see all the steps of the deployment pipeline. Firstly the developer 
  <img width="1000" height="300" src="images/frontpage.jpg">
 </p>
  
-The application has been updated to use an nginx load balancer, this means that the swarm can be set up to not accept http traffic and thus it is only accessible via the public address of the load balancer. Currently a load balancer is superfluous as the swarm is only running on a single vm, however it is hoped that once the gcp issue is resolved and multiple swarm workers are available then it will be much more useful.
+The application has been updated to use an nginx load balancer, while this would mean that the swarm can be set up to not accept http traffic and thus  only be accessible via the public address of the load balancer, as service 1 is making an external api call removing http access causes an error, and I am not able to fix it myself at the moment. Currently a load balancer is superfluous as the swarm is only running on a single vm, however it is hoped that once the gcp issue is resolved and multiple swarm workers are available then it will be much more useful.
  
 ## Feature branch
  
